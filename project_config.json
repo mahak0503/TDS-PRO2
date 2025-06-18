@@ -1,0 +1,49 @@
+{
+  "project_name": "TDS Virtual TA",
+  "version": "1.0.0",
+  "description": "Virtual Teaching Assistant for TDS course using LangChain and Streamlit",
+  "author": "Your Name",
+  "python_version": ">=3.8",
+  "main_files": {
+    "data_loader": "data_loader.py",
+    "main_app": "app.py",
+    "test_script": "test_chat.py",
+    "requirements": "requirements.txt"
+  },
+  "directories": {
+    "data_dir": "data/",
+    "vector_store": "faiss_index/",
+    "logs": "logs/"
+  },
+  "api_configuration": {
+    "openai_model": "gpt-3.5-turbo",
+    "embedding_model": "text-embedding-ada-002",
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "retriever_k": 3
+  },
+  "data_sources": {
+    "tds_portal": "https://tds.s-anand.net/#/2025-01/",
+    "discourse_forum": "https://discourse.onlinedegree.iitm.ac.in/c/courses/tds-kb/34.json",
+    "max_topics": 10,
+    "max_posts_per_topic": 5
+  },
+  "streamlit_config": {
+    "page_title": "Virtual TA (with Memory)",
+    "page_icon": "📘",
+    "layout": "centered"
+  },
+  "environment_variables": {
+    "required": [
+      "OPENAI_API_KEY"
+    ],
+    "optional": [
+      "OPENAI_ORGANIZATION"
+    ]
+  },
+  "deployment": {
+    "local_command": "streamlit run app.py",
+    "port": 8501,
+    "requirements_install": "pip install -r requirements.txt"
+  }
+}
